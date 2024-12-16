@@ -374,6 +374,7 @@ const Coursecontent = () => {
                 value={availableFrom}
                 onChange={(e) => setAvailableFrom(e.target.value)}
                 className="rounded-0 fc1"
+                required
               />
             </div>
           </div>
@@ -386,6 +387,7 @@ const Coursecontent = () => {
                 value={availableUntil}
                 onChange={(e) => setAvailableUntil(e.target.value)}
                 className="rounded-0 fc1"
+                required
               />
             </div>
           </div>

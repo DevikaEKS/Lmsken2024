@@ -10,6 +10,10 @@ background-color: rgb(209, 180, 235);
   cursor: pointer; 
 }
 
+.updatebtn:hover{
+  color: #ffa200;
+}
+
 input[type="checkbox"]{
     cursor: pointer;   
 }

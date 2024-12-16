@@ -5,7 +5,6 @@ import RegisterPage from "./Component/Landingpage/Register/Register";
 import { Footer } from "./Component/Footer/Footer";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CourseDetail from "./Component/Admin/Coursedetail/Coursedetail";
-import Inprogress from "./Component/Student/Inprogresscourses/Inprogress";
 import Coursecompleted from "./Component/Student/Coursecompleted/Coursecompleted";
 import Coursemenubar from "./Component/Student/Coursemenubar/Coursemenubar";
 import Contentmodule from "./Component/Instructor/Contentmodule/Contentmodule";
@@ -15,7 +14,6 @@ import Admindashboard from "./Component/Admin/Admindashboard/Admindashboard";
 import Courseupdation from "./Component/Admin/Courseupdation/Courseupdation";
 import Dashboardinstructor from "./Component/Instructor/Dashboardinstructor/Dashboardinstructor";
 import Sidebarinstructor from "./Component/Instructor/Sidebarinstructor/Sidebarinstructor";
-import Ongoingclass from "./Component/Student/OngoingClass/Ongoingclass";
 import RichTextEditorql from "./Component/RichTextEditor/RichTextEditor";
 import AdminCredential from "./Component/Admin/Admincredential/Admincredential";
 import Categorycreation from "./Component/Admin/Categorycreation/Categorycreation";
@@ -47,8 +45,6 @@ import Coursecontent from "./Component/Instructor/Coursecontent/Coursecontent";
 import ModuleUpdate from "./Component/Instructor/ModuleUpdate/ModuleUpdate";
 import CoursecontentUpdate from "./Component/Instructor/CoursecontentUpdate/CoursecontentUpdate";
 import QuestionUpdate from "./Component/Instructor/QuestionUpdate/QuestionUpdate";
-// import Module from "./Component/Instructor/Module/Module";
-// import CourseContentPage from "./Component/Instructor/CourseContentPage/CourseContentPage";
 import QuestionPage from "./Component/Instructor/QuestionPage/QuestionPage";
 import { Indiviualmenu } from "./Component/User/UserProfile/UserProfile";
 import UpdateCourse from "./Component/Instructor/UpdateCourse/UpdateCourse";
@@ -71,6 +67,8 @@ import MapComponent from "./Component/Drken/Mapcomponent/Mapcomponent";
 import CourseList from "./Component/Admin/CourseList/CourseList";
 import ForgotPassword from "./Component/Landingpage/ForgotPassword/ForgotPassword";
 import ResetPassword from "./Component/Landingpage/ResetPassword/ResetPassword";
+import QuestionBankUpdate from "./Component/Instructor/QuestionBankUpdate/QuestionBankUpdate";
+import Feedbackpage from "./Component/Landingpage/Feedbackpage/Feedbackpage";
 
 // import RichTextEditor from './Component/Instructor/Richtexteditor/Richtexteditor';
 
@@ -85,34 +83,11 @@ function App() {
           <Route path="/reset_password/:token" element={<ResetPassword />} />
           <Route path="/inv_register/:id" element={<InvitedRegister />} />
           <Route path="/business_register" element={<CompanyRegister />} />
-          {/* <Route path="/" element={[<Menubar />, <Banner />, <Footer />]} /> */}
+         
 
-          <Route
-            path="/progress"
-            element={[
-              <Menubar />,
-              <Coursemenubar />,
-              <Inprogress />,
-              <Footer />,
-            ]}
-          />
-
-          <Route
-            path="/completed"
-            element={[
-              <Menubar />,
-              <Coursemenubar />,
-              <Coursecompleted />,
-              <Footer />,
-            ]}
-          />
+          
           <Route path="/course" element={<Contentmodule />} />
 
-          <Route
-            path="/ongoing"
-            element={[<Menubar />, <Coursemenubar />, <Ongoingclass />]}
-          />
-          {/* <Route path='/rch' element={<RichTextEditorql/>}/> */}
 
           <Route path="/superadmin/:id*" element={<SuperAdminDashboard />}>
             <Route path="dashboard" element={<SuperDashboard />} />
@@ -134,26 +109,22 @@ function App() {
 
           <Route
             path="/instructordashboard/:id*"
-            element={<Dashboardinstructor />}>
+            element={<Dashboardinstructor />}
+          >
             <Route path="courselist" element={<Courselist />} />
-            <Route path="addpagecontent" element={[ <Coursecontent />]}/>
-            <Route path="updatepagecontent" element={[ <CoursecontentUpdate />]}/>
+            <Route path="addpagecontent" element={[<Coursecontent />]} />
+            <Route
+              path="updatepagecontent"
+              element={[<CoursecontentUpdate />]}
+            />
             {/* <Route path="coursemodule" element={<Module />} /> */}
             <Route path="addmodule" element={[<Modulepage />]} />
-            <Route
-              path="updatemodule"
-              element={[<ModuleUpdate />]}
-            />
+            <Route path="updatemodule" element={[<ModuleUpdate />]} />
             <Route path="quilltxt" element={<QuestionPage />} />
-            <Route
-              path="addquestion"
-              element={<Question />}
-            />
-            <Route
-              path="updatequestion"
-              element={ <QuestionUpdate />}
-            />
+            <Route path="addquestion" element={<Question />} />
+            <Route path="updatequestion" element={<QuestionUpdate />} />
             <Route path="questionbank" element={<CategoryQuizList />} />
+            <Route path="questionbankupdate" element={<QuestionBankUpdate />} />
             <Route path="category" element={<AddCategory />} />
             <Route path="coursecreation" element={<AddCourse />} />
             <Route path="coursecreation/:course" element={<UpdateCourse />} />
@@ -187,7 +158,10 @@ function App() {
           <Route path="/instructor" element={<Instructors />} />
           <Route path="/courseoverview" element={<Overview />} />
           <Route path="/courseview" element={<Courseview />} />
-          <Route path="/allcourselist/:id" element={[<DrmenubarUser />, <Availablecourses />]} />
+          <Route
+            path="/allcourselist/:id"
+            element={[<DrmenubarUser />, <Availablecourses />]}
+          />
           {/* <Route path="/quizquestions" element={<QuestionDisplay />} /> */}
           <Route
             path="/ken/:course/:module/:id"
@@ -202,10 +176,17 @@ function App() {
             path="/user/:id/profile"
             element={[<DrmenubarUser />, <DashBoardProfile />]}
           />
-          <Route path="/user/:id/message" element={[<DrmenubarUser />, <DashBoardMessage />]} />
-          <Route path="/user/:id/payment" element={[<DrmenubarUser />, <DashBoardPayment />]} />
+          <Route
+            path="/user/:id/message"
+            element={[<DrmenubarUser />, <DashBoardMessage />]}
+          />
+          <Route
+            path="/user/:id/payment"
+            element={[<DrmenubarUser />, <DashBoardPayment />]}
+          />
           <Route path="/user/:id/editprofile" element={<Edit />} />
           <Route path="/mp" element={<MapComponent />} />
+          <Route path="/feedback/:id" element={[<DrmenubarUser />,<Feedbackpage/>]}/>
         </Routes>
       </BrowserRouter>
     </div>

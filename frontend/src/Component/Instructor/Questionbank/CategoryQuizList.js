@@ -4,6 +4,7 @@ import parse from "html-react-parser";
 import "./CategoryQuizList.css";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useParams, Link } from "react-router-dom";
 
 const CategoryQuizList = () => {
   const [categories, setCategories] = useState([]);
@@ -20,6 +21,8 @@ const CategoryQuizList = () => {
   const [shuffledQuizzes, setShuffledQuizzes] = useState([]);
   const [selectedQuizType, setSelectedQuizType] = useState("");
   const [quizTypes, setQuizTypes] = useState([]);
+
+  const { id } = useParams();
 
   useEffect(() => {
     // Fetch categories from API
@@ -212,37 +215,40 @@ const CategoryQuizList = () => {
         <div style={{ marginBottom: "20px" }}>
           <div className="form-group">
             <div className="form-group-inner">
-            <label className="labelcourse">Module Name</label>
-            <select className="fc1" value={selectedCategory} onChange={handleCategoryChange} style={{ width: "50%", padding: "10px" }}>
-              <option value="">Select a Module</option>
-              {categories.map((category) => (
-                <option key={category.moduleid} value={category.moduleid}>
-                  {category.modulename}
-                </option>
-              ))}
-            </select>
-          </div>
+              <label className="labelcourse">Module Name</label>
+              <select
+                className="fc1"
+                value={selectedCategory}
+                onChange={handleCategoryChange}
+                style={{ width: "50%", padding: "10px" }} >
+                <option value="">Select a Module</option>
+                {categories.map((category) => (
+                  <option key={category.moduleid} value={category.moduleid}>
+                    {category.modulename}
+                  </option>
+                ))}
+              </select>
+            </div>
           </div>
           <div className="form-group">
             <div className="form-group-inner">
-            <label className="labelcourse my-2">Quiz Type</label>
-            <select
-            className="fc1"
-              value={selectedQuizType}
-              onChange={(e) => setSelectedQuizType(e.target.value)}
-              style={{ width: "50%", padding: "10px" }}
-            >
-              <option value="">Select a quiz type</option>
-              {quizTypes.map((quizType) => (
-                <option
-                  key={quizType.quiz_type_id}
-                  value={quizType.quiz_type_id}
-                >
-                  {quizType.quiz_type_name}
-                </option>
-              ))}
-            </select>
-          </div>
+              <label className="labelcourse my-2">Quiz Type</label>
+              <select
+                className="fc1"
+                value={selectedQuizType}
+                onChange={(e) => setSelectedQuizType(e.target.value)}
+                style={{ width: "50%", padding: "10px" }}
+              >
+                <option value="">Select a quiz type</option>
+                {quizTypes.map((quizType) => (
+                  <option
+                    key={quizType.quiz_type_id}
+                    value={quizType.quiz_type_id}>
+                    {quizType.quiz_type_name}
+                  </option>
+                ))}
+              </select>
+            </div>
           </div>
           <div>
             <h5 className="my-2 py-2 labelcourse">Question View Type</h5>
@@ -293,7 +299,8 @@ const CategoryQuizList = () => {
               Object.keys(selectedQuizzes).length > 0 && (
                 <button
                   className="btn btn-primary"
-                  onClick={shuffleSelectedQuizzes}>
+                  onClick={shuffleSelectedQuizzes}
+                >
                   Shuffle Selected
                 </button>
               )}
@@ -341,13 +348,17 @@ const CategoryQuizList = () => {
             )}
           </tbody>
         </table>
-        <div className="d-flex justify-content-end my-3">
+        <div className="d-flex justify-content-between my-3">
           <button
-            className="btn"
-            style={{ color: "white", backgroundColor: "#001040" }}
-            onClick={handleAddQuizzes}>
+            className="updatebtn"
+           
+            onClick={handleAddQuizzes}
+          >
             Add
           </button>
+          <Link to={`/instructordashboard/${id}/questionbankupdate`} className="updatebtn text-decoration-none">
+            Update
+          </Link>
         </div>
       </div>
     </div>

@@ -744,7 +744,7 @@ function CourseVideos() {
                         ))}
                       </div>
                     ) : showScoreCard ? (
-                      <div className="card quizpart p-4 d-flex flex-column justify-content-center align-items-center mx-2">
+                      <div className="card quizpart p-4 d-flex flex-column justify-content-center align-items-center m-0 m-md-5">
                         <h4 className="text-center">
                           Your answers were submitted.
                         </h4>
@@ -1023,8 +1023,7 @@ function CourseVideos() {
                                   />
                                   <label
                                     className="mx-2"
-                                    htmlFor={`check-${question.id}-${index}`}
-                                  >
+                                    htmlFor={`check-${question.id}-${index}`}>
                                     {optionObj.option}
                                   </label>
                                 </div>
