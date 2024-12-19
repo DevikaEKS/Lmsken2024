@@ -3,6 +3,19 @@
     font-weight: 600;
     font-size: 20px !important;  
 }
+.unique-story-header .btn {
+  height: 100%; /* Ensures buttons take the full height of the parent */
+  display: flex; /* Makes the content within the button align properly */
+  flex-direction: column; /* Ensures multiline text stays aligned */
+  justify-content: center; /* Centers the text vertically */
+  align-items: center; /* Centers the text horizontally */
+  white-space: normal; /* Allows multiline text wrapping */
+}
+
+/* .unique-story-header .col-4 {
+  display: flex; 
+  align-items: stretch; 
+} */
 
 .bolderheading{
 font-weight: 600;

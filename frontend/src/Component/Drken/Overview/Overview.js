@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Overview.css";
+import Termspage from "../Termspage/Termspage";
 
 function Overview() {
   const [selectedStory, setSelectedStory] = useState("jimsStory");
@@ -7,7 +8,7 @@ function Overview() {
   return (
     <div className="container unique-story-container">
       <div className="row unique-story-header">
-        <div className="col-6">
+        <div className="col-sm-12 col-md-4">
           <button
             className={`btn unique-left-btn ${selectedStory === "jimsStory" ? "active" : ""}`}
             onClick={() => setSelectedStory("jimsStory")}
@@ -15,7 +16,15 @@ function Overview() {
             Jim's Story <br /> Burning the Candle at Both Ends
           </button>
         </div>
-        <div className="col-6 text-end">
+        <div className="col-sm-12 col-md-4">
+          <button
+            className={`btn unique-left-btn ${selectedStory === "alejandrosStory" ? "active" : ""}`}
+            onClick={() => setSelectedStory("alejandrosStory")}
+          >
+            Alejandro’s Story <br /> Harnessing Spinal Energies
+          </button>
+        </div>
+        <div className="col-sm-12 col-md-4 text-end">
           <button
             className={`btn unique-right-btn ${selectedStory === "jillsStory" ? "active" : ""}`}
             onClick={() => setSelectedStory("jillsStory")}
@@ -33,7 +42,7 @@ function Overview() {
               BURNING THE CANDLE AT BOTH ENDS
             </h5>
             <div className="unique-story-text">
-              <p>
+            <p>
                 In a world where work often seems unceasing, Jim's story stands as a
                 poignant testament to the all-too-common struggle of burning the
                 candle at both ends.
@@ -115,6 +124,71 @@ function Overview() {
           </div>
         )}
 
+        {selectedStory === "alejandrosStory" && (
+          <div className="col-12">
+            <h5 className="unique-story-title my-3 text-center">Alejandro's Story</h5>
+            <h5 className="unique-story-subtitle mb-5 text-center">
+              HARNESSING SPINAL ENERGIES
+            </h5>
+            <div className="unique-story-text">
+              <p>
+              Alejandro stepped onto the clay court under a cloudless sky, the late afternoon sun casting 
+long shadows across the surface. At 22, he was in what many would call his athletic prime. 
+Yet, he felt anything but invincible. His serves no longer rocketed oG his racquet with that 
+eGortless snap, and his volleys lacked the precision and sting they once had. Most 
+troubling of all was the nagging discomfort in his lower back and the stiGness creeping into 
+his neck. He found himself hesitating mid-swing, and that tiny fraction of uncertainty was 
+all it took for his opponents to gain an edge. He worried that if he didn’t find a solution 
+soon, his career might stall before it ever truly took flight.
+              </p>
+              <p>A recent MRI workup had revealed degenerative changes at L4-L5 and L5-S1. Nothing 
+severe, no herniation or stenosis, but the knowledge weighed on him. How many other 
+athletes had subtle signs like this, lurking beneath their peak performances? Even among 
+his colleagues, it was nearly taboo to admit pain or discomfort, as if acknowledging the 
+body’s fragility would shatter the aura of strength and endurance.</p>
+<p>Then Alejandro found My Spine Coach. He had been skeptical at first—what could a course 
+on spine strategies really do to revitalize his game? But the more he read about it, the more 
+he understood it wasn’t just about learning a few stretches. It was about gaining a whole 
+new perspective on the human body’s capacity for regeneration, protection, and power</p>
+<p>In the course, Alejandro learned that he was far from alone. Athletes in every discipline—
+tennis, football, track, basketball—were struggling with the same hidden battles. Spine 
+health aGected everyone, and those who gained the slightest edge in posture, alignment, 
+and biomechanics could stay on top longer, playing better and with less pain. He realized 
+that simply by investing in his spine, he could separate himself from the pack.</p>
+<p>One of the first techniques he learned was facet mobilization, which targeted the small 
+joints in his spine that needed to move freely for maximum power. With these 
+mobilizations, his spine felt more supple, more alive, and that fluidity began translating into 
+more precise swings and stronger serves. He learned which key muscles to strengthen to 
+support those joints and how to “release” tension in his neck and shoulders using simple 
+shoulder rolls. A similar technique of pelvic tilting helped relieve his lower back, making it 
+more resilient under stress.</p>
+<p>Postural training became one of his favorite parts of My Spine Coach. He studied how icons 
+like Bruce Lee and Tom Brady harnessed internal power through impeccable posture. He learned that proper posture wasn’t just about standing tall for appearances—it aligned the 
+body and the brain, improving balance, awareness, and energy flow. The course explained 
+the biomechanics and even the mathematics behind maintaining proper head position: 
+how keeping his head up and forward-facing allowed him to see further, read the game 
+better, and react faster.</p>
+<p>What truly amazed Alejandro was the concept that the body could regenerate, not just 
+degenerate. My Spine Coach taught him how to protect this “Fountain of Youth” within 
+himself—how to move his spine by Grandmaster Ran, lift, and perform every athletic 
+motion to slow down wear and tear on his spine. It was about longevity, playing better now 
+and also preserving his future.</p>
+<p>He learned about the nervous system: how nerves carried not only signals for movement 
+but also for pain and performance. He discovered how his thoughts influenced his nerves. 
+Through meditation techniques introduced by My Spine Coach, he tapped into his “Genius 
+Brain,” controlling his stress response, focusing his energy, and breathing more eGiciently. 
+Advanced breathing techniques and knowledge about posture forces became tools he 
+wielded confidently during high-stakes matches.</p>
+<p>Lastly, the concept of “Ten Free Physicians”—the basic elements of health, movement, 
+rest, and nutrition that were at his disposal—resonated deeply. It felt empowering. After 
+completing My Spine Coach, Alejandro stepped back onto the court with renewed vigor. He 
+had more than just a better serve; he had a better understanding of himself. He credited 
+this training with propelling him forward, not only in tennis but in life. He had found a new 
+secret weapon, and he knew every athlete in the world could benefit, too</p>
+            </div>
+          </div>
+        )}
+
         {selectedStory === "jillsStory" && (
           <div className="col-12">
             <h5 className="unique-story-title my-3 text-center">Jill's Story</h5>
@@ -122,7 +196,7 @@ function Overview() {
               RISING STRONG
             </h5>
             <div className="unique-story-text">
-              <p>
+            <p>
                 Jill had always been full of energy. In her younger years, she
                 loved the feeling of freedom that came with long walks, dancing,
                 or just being outdoors. But as the years passed, she noticed a
@@ -158,6 +232,7 @@ function Overview() {
                 she sat, stood, and moved throughout her day mattered more than she
                 ever thought.
               </p>
+              
               <p>
                 It wasn’t an easy process. There were days when she struggled to
                 maintain the right posture or felt frustrated by slow progress. But
@@ -191,6 +266,8 @@ function Overview() {
             </div>
           </div>
         )}
+
+        <Termspage />
       </div>
     </div>
   );

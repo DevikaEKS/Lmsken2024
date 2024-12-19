@@ -998,3 +998,123 @@ export const getQuestionsWithAnswers = (req, res) => {
     });
   });
 };
+
+export const getQuestionsByModuleId = (req, res) => {
+  const { moduleid } = req.params;
+
+  if (!moduleid) {
+    return res.status(400).json({ error: "Module ID is required" });
+  }
+
+  // Step 1: Fetch question_ids from the quiz table
+  const queryQuiz = "SELECT question_ids FROM quiz WHERE moduleid = ?";
+
+  db.query(queryQuiz, [moduleid], (quizError, quizResults) => {
+    if (quizError) {
+      console.error("Error fetching question IDs:", quizError);
+      return res.status(500).json({ error: "Database query failed" });
+    }
+
+    if (quizResults.length === 0) {
+      return res
+        .status(404)
+        .json({ message: "No data found for the given module ID" });
+    }
+
+    // Step 2: Split question_ids into an array
+    const questionIds = quizResults[0].question_ids
+      .toString()
+      .split(",")
+      .map((id) => id.trim());
+
+    if (questionIds.length === 0) {
+      return res
+        .status(404)
+        .json({ message: "No question IDs found in the quiz table" });
+    }
+
+    // Step 3: Fetch details from quiz_text for the extracted IDs
+    const queryQuizText = `SELECT * FROM quiz_text WHERE id IN (${questionIds
+      .map(() => "?")
+      .join(",")})`;
+
+    db.query(queryQuizText, questionIds, (textError, textResults) => {
+      if (textError) {
+        console.error("Error fetching quiz text data:", textError);
+        return res.status(500).json({ error: "Database query failed" });
+      }
+
+      if (textResults.length === 0) {
+        return res.status(404).json({
+          message:
+            "No matching quiz text data found for the given question IDs",
+        });
+      }
+
+      // Step 4: Return the results
+      res.status(200).json({ questions: textResults });
+    });
+  });
+};
+
+export const getOldQuestionsByModuleId = (req, res) => {
+  const { moduleid } = req.params;
+
+  if (!moduleid) {
+    return res.status(400).json({ message: "Module ID is required" });
+  }
+
+  const query = `
+  SELECT id, text, \`option\`, correct_answer 
+  FROM quiz_text 
+  WHERE moduleid = ?`;
+
+  db.query(query, [moduleid], (err, results) => {
+    if (err) {
+      console.error("Error fetching questions:", err);
+      return res.status(500).json({ message: "Error fetching questions" });
+    }
+
+    res.status(200).json({
+      message: "Questions fetched successfully",
+      questions: results,
+    });
+  });
+};
+
+export const updateQuestionIds = (req, res) => {
+  const { moduleid, questionIds } = req.body; // Receive module ID and question IDs array
+  
+  if (!moduleid || !Array.isArray(questionIds)) {
+    return res.json({ error: "Invalid moduleid or question_ids." });
+  }
+
+  // Serialize the array into a string for storage
+  const newQuestionIds = JSON.stringify(questionIds);
+
+  // Query to find all entries with the same moduleid
+  const selectQuery = `SELECT quiz_id FROM quiz WHERE moduleid = ?`;
+
+  db.query(selectQuery, [moduleid], (err, results) => {
+    if (err) {
+      console.error("Error finding records:", err);
+      return res.json({ error: "Database query failed." });
+    }
+
+    if (results.length === 0) {
+      return res
+        .json({ error: "No records found for the given moduleid." });
+    }
+
+    // Update each record's question_ids field
+    const updateQuery = `UPDATE quiz SET question_ids = ? WHERE moduleid = ?`;
+    db.query(updateQuery, [newQuestionIds, moduleid], (updateErr) => {
+      if (updateErr) {
+        console.error("Error updating records:", updateErr);
+        return res.json({ error: "Failed to update records." });
+      }
+
+      res.json({ message: "Question IDs updated successfully." });
+    });
+  });
+};

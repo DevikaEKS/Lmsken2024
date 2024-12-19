@@ -3,13 +3,16 @@ import {
   addQuestion,
   createQuiz,
   fetchQuizQuestions,
+  getOldQuestionsByModuleId,
   getQuestion,
   getQuestionByModule,
   getQuestionsByModuleAndCourse,
+  getQuestionsByModuleId,
   getQuestionsWithAnswers,
   getQuizType,
   saveQuizAttempt,
   updateQuestionByModule,
+  updateQuestionIds,
 } from "../../controller/Course/quiz.controller.mjs";
 import upload from "../../middleware/fileUpload.mjs";
 const router = express.Router();
@@ -26,5 +29,9 @@ router.post("/createquiz", createQuiz);
 router.post("/savequiz/:user_id/:ass_id/:module", saveQuizAttempt);
 
 router.get("/getcorrectanswers/:courseid/:moduleid",getQuestionsWithAnswers)
+
+router.get(`/updatequestionbank/:moduleid`,getQuestionsByModuleId)
+router.get("/getoldquestions/:moduleid",getOldQuestionsByModuleId)
+router.post("/updatequestionids",updateQuestionIds)
 
 export default router;

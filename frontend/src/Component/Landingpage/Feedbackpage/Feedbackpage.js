@@ -63,9 +63,6 @@ function Feedbackpage() {
                         </div>
                         {rating > 0 && rating <= 3 && (
                             <>
- 
-
-
                                 <label className="py-2">What difficulties did you face</label>
                                 <br />
                                 <textarea
@@ -73,11 +70,10 @@ function Feedbackpage() {
                                     placeholder="Give your Feedback here"
                                     value={feedback}
                                     onChange={(e) => setFeedback(e.target.value)} // Update the feedback state
-                                    required
-                                ></textarea>
+                                    required ></textarea>
                             </>
                         )}
-  {rating >3  && rating <= 5 && (
+           {rating >3  && rating <= 5 && (
                             <>
                                 <label className="py-2">Kindly share any suggestions for improving the website to help us enhance it in the future.</label>
                                 <br />
