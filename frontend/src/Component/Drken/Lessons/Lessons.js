@@ -78,14 +78,12 @@ function Lessons() {
             <Link
               to={`/ken/1/${e.moduleId}/${id}`}
               className="col-sm-12 lessonview text-decoration-none"
-              style={{ color: "#001040" }}
-            >
+              style={{ color: "#001040" }}>
               <div className="col-lg-4 d-flex flex-column justify-content-center">
                 <img
                   src={e.module_image}
                   alt="lesson"
-                  className="rounded-3 lesson"
-                />
+                  className="rounded-3 lesson"/>
               </div>
               <div className="col-lg-6 d-flex flex-column justify-content-center textpart">
                 <h5>Chapter {e.moduleId}</h5>
@@ -103,8 +101,7 @@ function Lessons() {
                 <Link
                   to={`/ken/1/${e.moduleId}/${id}`}
                   className="col-sm-12 lessonview text-decoration-none"
-                  style={{ color: "#001040" }}
-                >
+                  style={{ color: "#001040" }}>
                   <div className="col-lg-4 d-flex flex-column justify-content-center">
                     <img
                       src={e.module_image}

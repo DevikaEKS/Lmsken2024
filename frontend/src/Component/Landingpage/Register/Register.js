@@ -21,7 +21,7 @@ function Registerpage() {
   const navigate = useNavigate();
 
   const emailPattern =
-    /^[a-zA-Z][a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    /^[a-z][a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
   const validateInput = () => {
     let isValid = true;

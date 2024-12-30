@@ -1,15 +1,10 @@
 import "./App.css";
-import Menubar from "./Component/Landingpage/Menubar/Menubar";
 import Login from "./Component/Landingpage/Login/Login";
 import RegisterPage from "./Component/Landingpage/Register/Register";
 import { Footer } from "./Component/Footer/Footer";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CourseDetail from "./Component/Admin/Coursedetail/Coursedetail";
-import Coursecompleted from "./Component/Student/Coursecompleted/Coursecompleted";
-import Coursemenubar from "./Component/Student/Coursemenubar/Coursemenubar";
 import Contentmodule from "./Component/Instructor/Contentmodule/Contentmodule";
-import Sidebarcomp from "./Component/sidebarcomp/sidebarcomp";
-import DashboardLayout from "./Component/DashboardLayout/DashboardLayout";
 import Admindashboard from "./Component/Admin/Admindashboard/Admindashboard";
 import Courseupdation from "./Component/Admin/Courseupdation/Courseupdation";
 import Dashboardinstructor from "./Component/Instructor/Dashboardinstructor/Dashboardinstructor";
@@ -20,7 +15,6 @@ import Categorycreation from "./Component/Admin/Categorycreation/Categorycreatio
 import CategoryDropdown from "./Component/Instructor/Categorytree/CategoryDropdown";
 import EditorComponent from "./Component/Instructor/Rcheditor/Rcheditor";
 import Question from "./Component/Instructor/Question/Question";
-// import DisplayContent from "./Component/Admin/Coursecontent/DisplayContent";
 import CategoryQuizList from "./Component/Instructor/Questionbank/CategoryQuizList";
 import Courselist from "./Component/Instructor/Courselist/Courselist";
 import Drkenhome from "./Component/Drken/Drkenhomepage/Drkenhome";
@@ -34,7 +28,6 @@ import Lessons from "./Component/Drken/Lessons/Lessons";
 import Instructors from "./Component/Drken/Instructors/Instructors";
 import Overview from "./Component/Drken/Overview/Overview";
 import Availablecourses from "./Component/Drken/Availablecourses/Availablecourses";
-// import QuestionDisplay from "./Component/Drken/Coursevideos/Questiondisplay";
 import Kencoursedashboard from "./Component/Drken/Kencoursedashboard/Kencoursedashboard";
 import CourseVideos from "./Component/Drken/Coursevideos/Coursevideos";
 import DrmenubarUser from "./Component/Drken/Drmenubar/DrmenubarUser";
@@ -70,7 +63,6 @@ import ResetPassword from "./Component/Landingpage/ResetPassword/ResetPassword";
 import QuestionBankUpdate from "./Component/Instructor/QuestionBankUpdate/QuestionBankUpdate";
 import Feedbackpage from "./Component/Landingpage/Feedbackpage/Feedbackpage";
 
-// import RichTextEditor from './Component/Instructor/Richtexteditor/Richtexteditor';
 
 function App() {
   return (
@@ -82,18 +74,12 @@ function App() {
           <Route path="/forgot_password" element={<ForgotPassword />} />
           <Route path="/reset_password/:token" element={<ResetPassword />} />
           <Route path="/inv_register/:id" element={<InvitedRegister />} />
-          <Route path="/business_register" element={<CompanyRegister />} />
-         
-
-          
+          <Route path="/business_register" element={<CompanyRegister />} />  
           <Route path="/course" element={<Contentmodule />} />
-
-
           <Route path="/superadmin/:id*" element={<SuperAdminDashboard />}>
             <Route path="dashboard" element={<SuperDashboard />} />
             <Route path="approve" element={<Approve />} />
           </Route>
-
           <Route path="/admindashboard/:id*" element={<Admindashboard />}>
             <Route path="coursedetail" element={<CourseDetail />} />
             <Route path="courseupdate" element={<Courseupdation />} />
@@ -106,18 +92,10 @@ function App() {
             <Route path="notenroll" element={<Notenrolledfile />} />
             <Route path="courselist" element={<CourseList />} />
           </Route>
-
-          <Route
-            path="/instructordashboard/:id*"
-            element={<Dashboardinstructor />}
-          >
+            <Route path="/instructordashboard/:id*" element={<Dashboardinstructor />}>
             <Route path="courselist" element={<Courselist />} />
             <Route path="addpagecontent" element={[<Coursecontent />]} />
-            <Route
-              path="updatepagecontent"
-              element={[<CoursecontentUpdate />]}
-            />
-            {/* <Route path="coursemodule" element={<Module />} /> */}
+            <Route path="updatepagecontent" element={[<CoursecontentUpdate />]}/>
             <Route path="addmodule" element={[<Modulepage />]} />
             <Route path="updatemodule" element={[<ModuleUpdate />]} />
             <Route path="quilltxt" element={<QuestionPage />} />
@@ -130,15 +108,12 @@ function App() {
             <Route path="coursecreation/:course" element={<UpdateCourse />} />
           </Route>
           <Route path="/instructorsidebar" element={<Sidebarinstructor />} />
-          <Route
-            path="/teacherdashboard/*"
-            element={<Dashboardinstructor />}
-          ></Route>
+          <Route path="/teacherdashboard/*" element={<Dashboardinstructor />}></Route>
           <Route path="/dropdowncategory" element={<CategoryDropdown />} />
           <Route path="/editor" element={<EditorComponent />} />
           <Route path="/questioncreation" element={<Question />} />
           {/* //DrKen */}
-          {/* <Route path="/cr" element={[<Drmenubar />, <Coursevideos/>]} /> */}
+
           <Route path="/" element={[<Drmenubar />, <Drkenhome />]} />
           <Route
             path="/user/:id"

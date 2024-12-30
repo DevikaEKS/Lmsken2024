@@ -58,8 +58,7 @@ function Drkenhome() {
       <div
         className={
           activeTab === "lessons" ? "video-wrapper my-2" : "video-wrapper1 my-2"
-        }
-      >
+        } >
         {activeTab === "lessons" ? (
           <iframe
             src="https://player.vimeo.com/video/984701898?autoplay=1&muted=1" // Replace with the actual video URL
@@ -67,22 +66,11 @@ function Drkenhome() {
             allow="autoplay; fullscreen; picture-in-picture"
             allowFullScreen
             title="Lessons Video"
-            // Adjust height as needed
           />
         ) : (
           <img src={frontgif} alt="Loading animation" className="rounded-5" />
         )}
       </div>
-      {/* <div className="video-wrapper">
-        <iframe
-          src="https://player.vimeo.com/video/984701898"
-          // src="https://drive.google.com/file/d/1iiNc0K6e4LaqTf-5Rpr0V7099XrSDsMs/view?usp=sharing"
-          frameBorder="0"
-          allow="autoplay; fullscreen; picture-in-picture"
-          allowFullScreen
-          title="Vimeo Video"
-        ></iframe>
-      </div> */}
       <div className="m-5">
         <h5 className="my-5 text-center" style={{ fontWeight: "600" }}>
           Introduction of My Spine Coach
@@ -96,8 +84,7 @@ function Drkenhome() {
                 src={icon1}
                 className="mx-2"
                 alt="18 Lessons"
-                style={{ height: "24px" }}
-              />
+                style={{ height: "24px" }}/>
               {count.moduleCount} Lessons
             </p>
           </div>
@@ -107,9 +94,7 @@ function Drkenhome() {
                 src={icon2}
                 className="mx-2"
                 alt="15 Hours"
-                style={{ height: "24px" }}
-              />
-              15 Hours
+                style={{ height: "24px" }}/>15 Hours
             </p>
           </div>
           <div className="col text-center">
@@ -118,42 +103,47 @@ function Drkenhome() {
                 src={icon3}
                 className="mx-2"
                 alt="3,000 Enrolled"
-                style={{ height: "24px" }}
-              />
+                style={{ height: "24px" }}/>
               {count.enrolleCount} Enrolled
             </p>
           </div>
         </div>
 
         <div className="row my-3">
-          <div className="col-sm-12 col-md-3 mx-1 mx-md-4 my-2">
+          <div className="col-sm-12 col-md-2 col-lg-3 mx-1 mx-md-4 my-2">
             <Link
               to="#"
               style={{ fontWeight: "500", textDecoration: "none" }}
               onClick={() => setActiveTab("overview")}
-              className={activeTab === "overview" ? "active-link" : ""}
-            >
+              className={activeTab === "overview" ? "active-link" : ""}>
               Overview
             </Link>
           </div>
 
-          <div className="col-sm-12 col-md-3 mx-1 mx-md-4 my-2">
+          <div className="d-block d-md-none d-lg-block col-sm-12 col-md-2 col-lg-3 mx-1 mx-md-4 my-2">
             <Link
               to="#"
               style={{ fontWeight: "500", textDecoration: "none" }}
               onClick={() => setActiveTab("Instructor")}
-              className={activeTab === "Instructor" ? "active-link" : ""}
-            >
-              AboutInstructor
+              className={activeTab === "Instructor" ? "active-link" : ""}>About Instructor
             </Link>
           </div>
-          <div className="col-sm-12 col-md-3 mx-1 mx-md-4 my-2">
+          {/* medium */}
+          <div className="d-none d-md-block d-lg-none col-sm-12 col-md-3 col-lg-3 mx-1 mx-md-5 my-2">
+            <Link
+              to="#"
+              style={{ fontWeight: "500", textDecoration: "none" }}
+              onClick={() => setActiveTab("Instructor")}
+              className={activeTab === "Instructor" ? "active-link" : ""}>
+             About&nbsp;Instructor
+            </Link>
+          </div>
+          <div className="col-sm-12 col-md-2  col-lg-3 mx-1 mx-md-4 my-2">
             <Link
               to="#"
               style={{ fontWeight: "500", textDecoration: "none" }}
               onClick={() => setActiveTab("lessons")}
-              className={activeTab === "lessons" ? "active-link" : ""}
-            >
+              className={activeTab === "lessons" ? "active-link" : ""}>
               Lessons
             </Link>
           </div>

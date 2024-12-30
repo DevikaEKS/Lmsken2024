@@ -21,8 +21,7 @@ export function Indiviualmenu() {
         navigate("/login");
       }
     };
-
-    verifyToken();
+ verifyToken();
   }, [navigate]);
 
   const handleLogout = async () => {
@@ -44,8 +43,7 @@ export function Indiviualmenu() {
     <div className="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
       <nav
         className="navbar show navbar-vertical h-lg-screen navbar-expand-lg px-0 py-3 navbar-light bg-white border-bottom border-bottom-lg-0 border-end-lg"
-        id="navbarVertical"
-      >
+        id="navbarVertical">
         <div className="container-fluid">
           <button
             className="navbar-toggler ms-n2"
@@ -54,8 +52,7 @@ export function Indiviualmenu() {
             data-bs-target="#sidebarCollapse"
             aria-controls="sidebarCollapse"
             aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
+            aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
           <a className="navbar-brand py-lg-2 mb-lg-5 px-lg-6 me-0" href="#">
@@ -82,8 +79,7 @@ export function Indiviualmenu() {
                 <Link
                   className="nav-link text-dark"
                   to="#"
-                  onClick={handleLogout}
-                >
+                  onClick={handleLogout}>
                   <i className="bi bi-box-arrow-left"></i> Logout
                 </Link>
               </li>

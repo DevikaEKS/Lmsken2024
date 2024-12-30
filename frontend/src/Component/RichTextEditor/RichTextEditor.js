@@ -1,64 +1,11 @@
 
 
-// import React, { useState } from 'react';
-// import { EditorState } from 'draft-js';
-// import Editor from '@draft-js-plugins/editor';
-// import createToolbarPlugin from '@draft-js-plugins/static-toolbar';
-// import '@draft-js-plugins/static-toolbar/lib/plugin.css'; // Static toolbar plugin CSS
-// import './styles.css';
-
-// import {
-//   ItalicButton,
-//   BoldButton,
-//   UnderlineButton,
-//   CodeButton,
-// } from '@draft-js-plugins/buttons'; // Import buttons
-
-// const toolbarPlugin = createToolbarPlugin();
-// const { Toolbar } = toolbarPlugin;
-// const plugins = [toolbarPlugin];
-
-// const RichTextEditor = () => {
-//   const [editorState, setEditorState] = useState(EditorState.createEmpty());
-
-//   const handleEditorChange = (state) => {
-//     setEditorState(state);
-//   };
-
-//   return (
-//     <div>
-//       <div className="toolbar-container">
-//         <Toolbar>
-//           {(externalProps) => (
-//             <div>
-//               <BoldButton {...externalProps} />
-//               <ItalicButton {...externalProps} />
-//               <UnderlineButton {...externalProps} />
-//               <CodeButton {...externalProps} />
-//             </div>
-//           )}
-//         </Toolbar>
-//       </div>
-//       <div className="editor-container">
-//         <Editor
-//           editorState={editorState}
-//           onChange={handleEditorChange}
-//           plugins={plugins}
-//           placeholder="Start typing here..."
-//         />
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default RichTextEditor;
-
 import React, { useState } from 'react';
 import { EditorState, Modifier, AtomicBlockUtils } from 'draft-js';
 import Editor from '@draft-js-plugins/editor';
 import createToolbarPlugin from '@draft-js-plugins/static-toolbar';
 import '@draft-js-plugins/static-toolbar/lib/plugin.css';
-import './styles.css';
+
 
 import {
   ItalicButton,

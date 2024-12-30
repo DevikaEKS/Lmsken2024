@@ -1,23 +1,3 @@
-// import React from 'react';
-
-// import { Outlet } from 'react-router-dom';
-// import './DashboardLayout.css'; // Assuming you have some styles for layout
-// import Sidebarcomp from '../sidebarcomp/sidebarcomp';
-
-// const DashboardLayout = () => {
-//   return (
-   
-//     <div className="dashboard-layout">
-//       <Sidebarcomp/>
-//       <div className="dashboard-content">
-//         <Outlet />
-//       </div>
-//     </div>
-    
-//   );
-// };
-
-// export default DashboardLayout;
 
 
 import React from 'react';
